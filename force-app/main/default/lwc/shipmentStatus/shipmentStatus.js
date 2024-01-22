@@ -1,6 +1,5 @@
 import { LightningElement, track, api } from 'lwc';
 import getShipmentStatus from '@salesforce/apex/ShipmentStatusController.getShipmentStatus';
-
 export default class ShipmentStatus extends LightningElement {
     @api trackingNumber;
     @track shipmentStatus;
@@ -9,7 +8,8 @@ export default class ShipmentStatus extends LightningElement {
         this.trackingNumber = event.target.value;
     }
 
-    getShipmentStatus() {
+    getShipmentStatus(event) {
+        event.preventDefault();
         if (this.trackingNumber) {
             getShipmentStatus({ trackingNumber: this.trackingNumber })
                 .then(result => {
@@ -23,5 +23,4 @@ export default class ShipmentStatus extends LightningElement {
             this.shipmentStatus = 'Please enter a tracking number.';
         }
     }
-    
 }
