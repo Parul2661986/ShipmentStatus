@@ -4,13 +4,13 @@ public class ShipmentStatusControllerTest {
     @isTest
     static void testGetAccessToken() {
         // Create a test User_Access_Info__mdt record
-        /*User_Access_Info__mdt testUserAccessInfo = new User_Access_Info__mdt(
+        User_Access_Info__mdt testUserAccessInfo = new User_Access_Info__mdt(
             DeveloperName = 'Test_User_Access_Info',
             client_id__c = 'testClientId',
             client_secret__c = 'testClientSecret',
             security_token__c = 'testSecurityToken'
         );
-        insert testUserAccessInfo;*/
+        insert testUserAccessInfo;
 
         // Set up the mock response for the access token callout
         Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator('{"access_token": "testAccessToken"}', 200));
