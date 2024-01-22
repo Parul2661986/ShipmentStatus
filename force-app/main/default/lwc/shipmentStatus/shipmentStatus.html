@@ -1,4 +1,13 @@
-<!-- Shipment Status HTML-->
 <template>
-    <h1>{trackingStatus}</h1>
-    </template>
+    <lightning-card title="Shipment Status" icon-name="standard:shipping_and_handling">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Tracking Number" type="text" value={trackingNumber} onchange={handleTrackingNumberChange}></lightning-input>
+            <lightning-button variant="brand" label="Get Shipment Status" onclick={getShipmentStatus}></lightning-button>
+        </div>
+        <template if:true={shipmentStatus}>
+            <div class="slds-p-around_medium">
+                <p>Shipment Status: {shipmentStatus}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>
