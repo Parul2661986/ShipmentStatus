@@ -45,7 +45,8 @@ public class ShipmentStatusController {
             System.debug(response.getBody());
             return response.getBody();
         } else {
-            return 'Error - Unable to fetch shipment status. HTTP Status Code: ' + response.getStatusCode();
+            System.debug('Error - Unable to fetch shipment status. HTTP Status Code: ' + response.getStatusCode());
+            return null;
         } 
     }
 }
